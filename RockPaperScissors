@@ -1,0 +1,80 @@
+//Luis Lopez
+//Rock paper scissors game
+
+import java.util.Scanner;
+import java.util.Random;
+
+
+public class RockPaperScissors {
+	public static void main ( String [] args ) 
+	{
+		Scanner input = new Scanner ( System.in );
+		int user;
+		int computer;
+		
+		System.out.print ("Enter your move: 0 for rock, 1 for paper or 2 for scissors ");
+			user = input.nextInt();
+			
+		Random generator = new Random();
+		computer = generator.nextInt(3);
+		
+		if (user == computer )
+		{
+			if ( user == 0)
+			{
+				System.out.println( "Both players chose rock, game results in a tie");
+			}
+			else if ( user == 1)
+			{
+				System.out.println( "Both players chose paper, game results in a tie");
+			}
+			else
+			{
+				System.out.println( "Both players chose scissors, game results in a tie");
+			}
+		}
+		
+		else if (user == 0)
+		{
+			if ( computer == 1)
+			{
+				System.out.println( "You chose rock, computer chose paper");
+				System.out.println( "Paper beats rock, you lose!");
+			}
+			else
+			{
+				System.out.println( "You chose rock, computer chose scissors");
+				System.out.println( "Rock beats scissors, you win!");
+			}
+		}
+		
+		else if ( user == 1)
+		{
+			if ( computer == 0)
+			{
+				System.out.println( "You chose paper, computer chose rock");
+				System.out.println( "Paper beats rock, you win!");	
+			}
+			else
+			{
+				System.out.println( "You chose paper, computer chose scissors");
+				System.out.println( "Scissors beats paper, you lose!");
+			}
+		}
+		
+		else
+		{
+			if (computer == 0)
+			{
+				System.out.println( "You chose scissors, computer chose rock");
+				System.out.println( "Rock beats scissors, you lose!");
+			}
+			else
+			{
+				System.out.println( "You chose scissors, computer chose paper");
+				System.out.println( "Scissors beats paper, you win!");
+			}
+		}
+	}
+
+}
