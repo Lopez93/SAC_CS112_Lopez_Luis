@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+
+public class OddEvenGame {
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner (System.in);
+		int dice;
+		int guess;
+		int plays = 0;
+		int even1 = 0;
+		int odd = 0;
+		int win = 0;
+		int guesses = 0;
+		double winpercent = 0.0;
+		boolean again = true;
+		System.out.print ("Hit enter to roll dice");
+		Scanner scanner = new Scanner(System.in);
+		scanner.nextLine();
+		
+		while (again) {
+		dice = 1 + (int) (Math.random() * 6 );
+		System.out.println(dice);
+		boolean even = true; 
+		if (dice == 2 || dice == 4 || dice == 6) {
+			even = true; even1++;
+		}
+		else {
+			even = false; odd++;
+		}
+		
+		System.out.println("Guess if even or odd");
+		System.out.print("Enter 1 for odd or 2 for even: "); plays++; guesses++;
+		guess = input.nextInt();
+		
+		if (( guess < 1) || (guess > 2))
+			System.out.println("You did not enter 1 or 2");
+		
+		else {
+			if (guess == 1 && even) 
+				System.out.println("You lose");
+		
+			else if (guess == 2 && even) {
+				System.out.println("You win"); win++;
+			}
+			else if (guess == 1 && !even) { 
+				System.out.println("You win"); win++;
+			}
+			else if (guess == 2 && !even)
+				System.out.println("You lose");
+			}
+		
+		//Display results
+		System.out.printf("You've played %d times %n", plays);
+		System.out.printf("The system generated %d number of odds and %d number of even %n", odd, even1);
+		winpercent = (double)win / guesses * 100;
+		System.out.printf("Your winning percentage is: %f percent %n", winpercent);
+		
+		String play;
+		System.out.println("Would you like to play again?");
+		System.out.print("Enter Y for yes or N for no ");
+		play = input.next();
+		
+		//Prompt user to play again
+		if (play.toUpperCase().equals("Y")) {
+			again = true;
+		}
+			
+		else {
+			again = false;
+			System.out.println("Thank you for playing");
+			}
+		}
+		
+	}
+}
